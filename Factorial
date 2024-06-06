@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main(){
+    int n,s=1;
+    printf("Enter any number:");
+    scanf("%d", &n);
+    for(int i=n;i>0;i--){
+        s*=i;
+    }
+    printf("Factorial of %d is %d",n,s);
+    return 0;
+}
+
+Input/Output
+Enter any number:5
+Factorial of 5 is 120
