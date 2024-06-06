@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node* next;
+};
+struct node* create(int data){
+    struct node* newnode=(struct node*)malloc(sizeof(struct node));
+    if(newnode==NULL){
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    newnode->data=data;
+    newnode->next=NULL;
+    return newnode;
+}
+void insert(struct node** head,int data){
+    struct node* newnode=create(data);
+    if(*head==NULL){
+        *head=newnode;
+    }
+    else{
+        struct node* temp=*head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=newnode;
+    }
+}
+void del(struct node** head,int tar){
+    struct node* temp=*head;
+    struct node* prev=NULL;
+    if(temp!=NULL && temp->data==tar){
+        *head=temp->next;
+        free(temp);
+        return;
+    }
+    while(temp!=NULL && temp->data!=tar){
+        prev=temp;
+        temp=temp->next;
+    }
+    if(temp==NULL){
+        printf("Element not found");
+        return;
+    }
+    prev->next=temp->next;
+    free(temp);
+}
+void print(struct node* head){
+    while(head!=NULL){
+        printf("%d->",head->data);
+        head=head->next;
+    }
+    printf("NULL");
+}
+int main(){
+    struct node* head=NULL;
+    insert(&head,1);
+    insert(&head,2);
+    insert(&head,3);
+    insert(&head,4);
+    insert(&head,5);
+    printf("Initial linked list:\n");
+    print(head);
+    insert(&head,8);
+    printf("\nInserting 8 into the Linked list\n");
+    print(head);
+    del(&head,3);
+    printf("\nDeleting 3 from the Linked list\n");
+    print(head);
+    return 0;
+}
+
+Input/Output
+Initial linked list:
+1->2->3->4->5->NULL
+Inserting 8 into the Linked list
+1->2->3->4->5->8->NULL
+Deleting 3 from the Linked list
+1->2->4->5->8->NULL
