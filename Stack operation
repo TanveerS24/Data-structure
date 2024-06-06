@@ -1,0 +1,91 @@
+#include <stdio.h>
+int main(){
+    int arr[5],n,top=0,x=0;
+    printf("The size of the stack is 5\nEnter 1 to push a number,Enter 2 to pop a number,Enter 3 to check top,Enter 4 to Display the stack ,Enter any other number to exit\n");
+    while (x==0){
+        printf("Enter your choice:");
+        scanf("%d", &n);
+        switch (n){
+            case 1:
+                if(top<5 && top>=0){
+                    printf("Enter Number:");
+                    scanf("%d", &arr[top++]);
+                }
+                else{
+                    printf("Stack overflow\n");
+                }
+                break;
+            case 2:
+                if (top>0){
+                    printf("Popped value:%d\n", arr[--top]);
+                }
+                else{
+                    printf("Stack underflow\n");
+                }
+                break;
+            case 3:
+                if(top==0){
+                    printf("Empty stack\n");
+                }
+                else{
+                    printf("%d\n", arr[top-1]);
+                }
+                break;
+            case 4:
+                if(top==0){
+                    printf("Empty stack");
+                }
+                else{
+                    for(int i=0;i<top;i++){
+                        printf("%d ",arr[i]);
+                    }
+                }
+                printf("\n");
+                break;
+            default:
+                printf("Goodbye");
+                x=1;
+        }
+    }
+    return 0;
+}
+
+Input/Output
+The size of the stack is 5
+Enter 1 to push a number,Enter 2 to pop a number,Enter 3 to check top,Enter 4 to Display the stack ,Enter any other number to exit
+Enter your choice:2
+Stack underflow
+Enter your choice:3
+Empty stack
+Enter your choice:4
+Empty stack
+Enter your choice:1
+Enter Number:10
+Enter your choice:1
+Enter Number:20
+Enter your choice:1
+Enter Number:30
+Enter your choice:4
+10 20 30 
+Enter your choice:1
+Enter Number:40
+Enter your choice:1
+Enter Number:50
+Enter your choice:1
+Stack overflow
+Enter your choice:3
+50
+Enter your choice:2
+Popped value:50
+Enter your choice:2
+Popped value:40
+Enter your choice:2
+Popped value:30
+Enter your choice:1
+Enter Number:70
+Enter your choice:1
+Enter Number:80
+Enter your choice:4
+10 20 70 80 
+Enter your choice:5
+Goodbye
