@@ -1,0 +1,35 @@
+#include <stdio.h>
+int main() {
+    int arr[100],s,x,t;
+    printf("Enter no. of elements in the array:");
+    scanf("%d",&s);
+    for(int i=0;i<s;i++){
+        printf("Enter value %d:",i+1);
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter new element:");
+    scanf("%d",&x);
+    printf("Enter index:");
+    scanf("%d",&t);
+    for(int i=s-1;i>=t;i--){
+        arr[i+1]=arr[i];
+    }
+    arr[t]=x;
+    s++;
+    for(int i=0;i<s;i++){
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
+
+
+Input/Output
+Enter no. of elements in the array:5
+Enter value 1:10
+Enter value 2:20
+Enter value 3:30
+Enter value 4:40
+Enter value 5:50
+Enter new element:60
+Enter index:2
+10 20 60 30 40 50 
