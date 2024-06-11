@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+int mat1[3][3]={{1,2,3},{1,2,3},{1,2,3}};
+int mat2[3][3]={{1,2,3},{1,2,3},{1,2,3}};
+int res[3][3];for(int i=0;i<3;i++)
+{
+for(int j=0;j<3;j++)
+{
+for(int k=0;k<3;k++)
+{
+res[i][j]+=mat1[i][k]*mat2[k][j];;
+}
+printf("%d ",res[i][j]);
+}
+printf("\n");
+}
+return 0;
+}
+
+INPUT/OUTPUT:
+1557507046 32090 1556155934
+32084 12 18 
+1556155922 32090 57 
